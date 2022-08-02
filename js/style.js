@@ -9,18 +9,23 @@ let PrecioTotal = 0;
 
 for ( let j = 0; j < Cant; j++) {
     let preciosinIva = parseFloat(prompt("ingrese el precio del helado elegido"));
-    let PreciomasIva = CalculaIva(preciosinIva)
+    let PreciomasIva = CalculaIva(preciosinIva);
     PreciosHelados += PreciomasIva;
+    break;
+    
 }
 
+//descuento de helados 
 
-//descuento de pote + helados 
-
-if (Cant < 5 ) {
+if (Cant <= 3 ) {
     PrecioTotal = PreciosHelados;
-} else if (Cant >= 5 && Cant <=10 ) {
-    let Descontar = (PreciosHelados * 10) / 30;
+} else if (Cant >= 3 && Cant <= 10) {
+    let Descontar = (PreciosHelados * 10) / 100;
     PrecioTotal = PreciosHelados - Descontar;
+}
+else if(Cant >= 10) {
+    let Descontar = (PreciosHelados * 20) /100;
+    PrecioTotal = PreciosHelados - Descontar;    
 }else{
     alert("Fatal: ingresa el precio!");
 }
@@ -28,7 +33,7 @@ if (Cant < 5 ) {
 //funcion
 
 function CalculaIva(totalimpuesto){
-    let PreciomasIva = totalimpuesto * 2;54;
+    let PreciomasIva = totalimpuesto * 2.20;
     return PreciomasIva;
 }
 console.log("total: " + PreciosHelados);
