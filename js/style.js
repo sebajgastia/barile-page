@@ -21,7 +21,7 @@ const productos = [
     { nombre: "trufas heladas", precio: 1000},
 ];
 
-//agregar al chango
+//agregar producto al chango
 
 let changuitoDecompras = []
 
@@ -29,8 +29,6 @@ let seleccionarProducto = prompt("quiere comprar un producto? si/no")
 
 while(seleccionarProducto != "si" && seleccionarProducto != "no"){
     alert("ingrese si o no")
-    //seleccionarProducto = prompt("Desea comprar algun producto? si o no")
-    
 };
 
 if(seleccionarProducto == "si"){
@@ -77,6 +75,9 @@ while(seleccionarProducto != "no"){
         break;
     }
 }
+
+//calculador precio final
+
 function total(){
    let precioTotal = changuitoDecompras.reduce(((acc, el) => acc + el.precio * el.unidades, 0))
     return precioTotal(`el total a pagar es: ${total}`);
