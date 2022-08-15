@@ -15,10 +15,10 @@ if ((Ingresecel != "") && (Nombre !="")){
 //productos
 
 const productos = [
-    { nombre: "helado", precio: 800},
-    { nombre: "paletas", precio: 400},
-    { nombre: "tortas heladas", precio: 1500},
-    { nombre: "trufas heladas", precio: 1000},
+    {id:1, nombre: "helado", precio: 800},
+    {id:2, nombre: "paletas", precio: 400},
+    {id:3, nombre: "tortas heladas", precio: 1500},
+    {id:4, nombre: "trufas heladas", precio: 1000},
 ];
 
 //agregar producto al chango
@@ -82,3 +82,32 @@ function total(){
    let precioTotal = changuitoDecompras.reduce(((acc, el) => acc + el.precio * el.unidades, 0))
     return precioTotal(`el total a pagar es: ${total}`);
 }
+
+//DOM
+
+console.dir(document.body);
+
+//elemento por id
+let divSeccion = document.getElementById("divSeccion");
+console.log(divSeccion.innerText);
+divSeccion.style.color="black";
+
+//tabla
+
+let tabla=document.createElement("table");
+tabla.className="table table-striped"
+let cuerpoDetabla=document.createElement("tbody");
+for(const producto of productos){
+    cuerpoDetabla.innerHTML+=`
+        <tr>
+            <td>${producto.id}</td>
+            <td>${producto.nombre}</td>
+            <td>${producto.precio}</td>
+        </tr>           
+    `;
+
+}
+
+tabla.append(cuerpoDetabla);
+let tabladeproductos = document.getElementById("tablaProductos");
+tabladeproductos.append(tabla);
