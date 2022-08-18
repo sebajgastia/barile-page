@@ -1,113 +1,131 @@
-//bienvenida
-
-alert("Hola! que bueno tenerte por aca! presionar enter");
-let Nombre = prompt("ingresa tu nombre!");
-let Ingresecel = parseInt(prompt("ingresa tu numero de celular!"));
-
-if ((Ingresecel != "") && (Nombre !="")){
-    
-    alert( "bienvenido: " + "Tu nombre es: " + Nombre+ "Tu celular es: " +Ingresecel);
-
-}else{
-    alert("FATAL: por favor ingrese su nombre y numero celular");
+class Productos{
+    constructor(id, nombre, precio, foto){
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.foto = foto;
+    }
 }
 
-//productos
-
-const productos = [
-    {id:1, nombre: "helado", precio: 800},
-    {id:2, nombre: "paletas", precio: 400},
-    {id:3, nombre: "tortas heladas", precio: 1500},
-    {id:4, nombre: "trufas heladas", precio: 1000},
-];
-
-//agregar producto al chango
-
-let changuitoDecompras = []
-
-let seleccionarProducto = prompt("quiere comprar un producto? si/no")
-
-while(seleccionarProducto != "si" && seleccionarProducto != "no"){
-    alert("ingrese si o no")
-};
-
-if(seleccionarProducto == "si"){
-    alert("Nuestra lista de productos!")
-    let Losproductos = productos.map((producto) => producto.nombre + "" + producto.precio + "$");
-    alert(Losproductos.join (" _ "))
-} else if (seleccionarProducto == "no"){
-    alert("Que tengas un bonito dia!")
+class ContenidoDelcarro{
+    constructor(producto, cantidad) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
 }
 
-while(seleccionarProducto != "no"){
-    let productos = prompt("agregar producto a tu carrito")
-    let precio = 0
+//array del carro
 
-    if(productos == "helado" || productos == "paletas" || productos == "tortas heladas" || productos == "trufas heladas" ){
-      switch(productos){
-        case "helado":
-         precio = 800;
-         break;
-        case "paletas":
-         precio = 400;
-         break;
-        case "tortas heladas":
-         precio = 1500;
-         break;
-        case "trufas heladas":
-         precio = 1200;
-         break;
-        
+const Producto = [];
+const contenidosDelcarro = [];
+
+const contenedordeProductos = 
+    document.getElementById('contenedor-productos').getElementsByClassName('row');
+
+const rowContenedorProductos = contenedordeProductos[0];
+
+const contenedorDeCarrito = document.querySelector("#items");
+
+//ejecucion de funciones
+
+agregarProductos();
+meterAlCarrito();
+cargarAlcarrito();
+crearCatalogoProductos();
+
+//funciones
+
+function agregarProductos() {
+    Producto.push(new Productos(1, "Helados", 1000, "../img/frutos del bosque.jpg"));
+    Producto.push(new Productos(2, "Paletas", 800, "../img/paleta 2.jpg"));
+    Producto.push(new Productos(3, "Tortas heladas", 2500, "../img/torta oreo.jpg"));
+    Producto.push(new Productos(4, "Trufas", 900, "../img/trufas 2.jpg"));
+}
+
+function meterAlCarrito() {
+    let contenidoCarro = new ContenidoDelcarro(
+        new Productos(1, "Helados", 1000, "../img/frutos del bosque.jpg"),
+        1
+    );
+
+    contenidosDelcarro.push(contenidoCarro);
+}
+
+function cargarAlcarrito() {
+    let renglonesDecarrito = "";
+   
+    contenidosDelcarro.forEach(
+        (elemento) => {
+            renglonesDecarrito+=`
+                <tr>
+                    <td${elemento.producto.id}></td>
+                    <td${elemento.producto.nombre}></td>
+                    <td${elemento.cantidad}></td>
+                    <td$ ${elemento.producto.precio}></td>
+                </tr>
+            `;
         }
-    let unidades = parseInt(prompt("cuantas unidades quiere llevar?"))
     
-    changuitoDecompras.push({productos, unidades, precio})
-    }else{
-        alert("FATAL: no tenemos ese producto")
-    }
-    seleccionarProducto = prompt("Desea continuar con la compra? si/no")
-
-    while(seleccionarProducto === "no"){
-        alert("gracias por tu compra! vuelve pronto!")
-        changuitoDecompras.forEach((changofinal) => {
-            console.log(`producto: ${changofinal.productos}, unidades: ${changofinal.unidades} su total ${changofinal.unidades * changofinal.precio}`)
-        })
-        break;
-    }
+    );
+    
+    contenedorDeCarrito.innerHTML = renglonesDecarrito;
 }
 
-//calculador precio final
+//cartas Dom y eventos
 
-function total(){
-   let precioTotal = changuitoDecompras.reduce(((acc, el) => acc + el.precio * el.unidades, 0))
-    return precioTotal(`el total a pagar es: ${total}`);
-}
+function crearCarta(cartaProducto) {
+    //boton
+    let agregarBoton = document.createElement("button");
+    agregarBoton.className = "btn btn-primary";
+    agregarBoton.innerText = "Agregar";
+    
+    //cuerpo de carta
 
-//DOM
-
-console.dir(document.body);
-
-//elemento por id
-let divSeccion = document.getElementById("divSeccion");
-console.log(divSeccion.innerText);
-divSeccion.style.color="black";
-
-//tabla
-
-let tabla=document.createElement("table");
-tabla.className="table table-striped"
-let cuerpoDetabla=document.createElement("tbody");
-for(const producto of productos){
-    cuerpoDetabla.innerHTML+=`
-        <tr>
-            <td>${producto.id}</td>
-            <td>${producto.nombre}</td>
-            <td>${producto.precio}</td>
-        </tr>           
+    let cuerpoDecarta = document.createElement ("div");
+    cuerpoDecarta.className = "card-body";
+    cuerpoDecarta.innerHTML = `
+    <h5>${cartaProducto.nombre}</h5>
+    <p>$${cartaProducto.precio}</p>
     `;
+    cuerpoDecarta.append(agregarBoton);
+
+    //foto
+    let FotoProducto = document.createElement("img");
+    FotoProducto.src = cartaProducto.foto;
+    FotoProducto.className = "card-img-top";
+    FotoProducto.alt = cartaProducto.nombre;
+    
+    //card
+
+    let carta = document.createElement("div");
+    carta.className = "card";
+    carta.append(FotoProducto);
+    carta.append(cuerpoDecarta);
+
+    //contenedor de la carta
+    let contenedorDecarta = document.createElement("div");
+    contenedorDecarta.className = "col-xs-6 col-sm-3 col-md-2";
+    contenedorDecarta.append(carta);
+    
+    //eventos
+    agregarBoton.onclick = () =>{
+       let carritoElemento = new ContenidoDelcarro(cartaProducto, 1);
+       contenidosDelcarro.push(carritoElemento);
+       
+       cargarAlcarrito();
+    }
+
+    return contenedorDecarta;
 
 }
 
-tabla.append(cuerpoDetabla);
-let tabladeproductos = document.getElementById("tablaProductos");
-tabladeproductos.append(tabla);
+function crearCatalogoProductos() {
+    rowContenedorProductos.innerHTML = "";
+    Producto.forEach(
+        (elementoProdu) => {
+            let contenedorDecarta = crearCarta(elementoProdu);
+            
+            rowContenedorProductos.append(contenedorDecarta);
+        }
+    );
+}
