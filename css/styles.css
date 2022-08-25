@@ -26,3 +26,10 @@ body{
     flex-direction: column;
 }
    
+
+
+.text-helados{
+    font-family: cursive;
+    color:blueviolet;
+    background-color: black;
+}

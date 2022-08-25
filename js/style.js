@@ -21,7 +21,12 @@ const estandarPesosArgentinos = Intl.NumberFormat('en-AR');
 
 //Arrays del carro
 const productos = [];
-const elementosCarrito = [];
+
+let elementosCarrito = [];
+
+if(localStorage.getItem("carro") !=null){
+    elementosCarrito=JSON.parse(localStorage.getItem("carro"));
+}
 
 const contenedorProductos = document.getElementById('contenedor-productos');
 
@@ -41,7 +46,7 @@ dibujarCatalogoProductos();
 function cargarProductos() {
     productos.push(new Producto(1, 'Helados', 1000, '../img/frutos del bosque.jpg'));
     productos.push(new Producto(2, 'Paletas', 600, '../img/paleta 2.jpg'));
-    productos.push(new Producto(3, 'Tortas heladas', 2500, '../img/torta oreo.jpg'));
+    productos.push(new Producto(3, 'Postres', 2500, '../img/torta oreo.jpg'));
     productos.push(new Producto(4, 'Trufas', 800, '../img/trufas 2.jpg'));
 }
 function cargarCarrito() {
@@ -88,7 +93,7 @@ function dibujarCarrito() {
         }
     );
 
-    //contenedorCarritoCompras.innerHTML = renglonesCarrito;
+    //contenedorCarritoCompras = renglonesCarrito;
     
     if(elementosCarrito.length == 0) {
         contenedorFooterCarrito.innerHTML = `
@@ -99,7 +104,10 @@ function dibujarCarrito() {
             <th scope="row" colspan="5">Total de la compra: $${estandarPesosArgentinos.format(sumaCarrito)}</th>
         `;
     }
+    
+    //storage
 
+    localStorage.setItem("carro", JSON.stringify (elementosCarrito));
 }
 
 function removerProductoCarrito(elementoAEliminar) {
@@ -113,7 +121,8 @@ function crearCard(producto) {
     //Botón
     let botonAgregar = document.createElement("button");
     botonAgregar.className = "btn btn-success";
-    botonAgregar.innerText = "Agregar";
+    botonAgregar.innerText = "Agregar al carro";
+
 
     //Card body
     let cuerpoCarta = document.createElement("div");
@@ -152,20 +161,11 @@ function crearCard(producto) {
 
         dibujarCarrito();
 
-        swal({
+        swal.fire({
             title: "¡Agregaste un producto al carro!",
             text: `Agregaste el producto: ${producto.nombre} `,
             icon: "success",
-            buttons: {
-                cerrar: {
-                    text: "Cerrar",
-                    value: false
-                },
-                carrito: {
-                    text: "Ir a carrito",
-                    value: true
-                }
-            }
+
         }).then((irACarrito) => {
 
             if(irACarrito) {
@@ -195,3 +195,14 @@ function dibujarCatalogoProductos() {
 
 }
 
+let finalizar=document.getElementById("finalizar");
+finalizar.onclick=()=>{
+    Swal.fire({
+        title: 'Gracias!!',
+        text: 'En breve te contactamos!',
+        imageUrl: '../img/graciasportucompra.jpg',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+      })
+}    

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script defer src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script defer src="../js/style.js"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <title>Productos BARILE</title>
 </head>
@@ -28,24 +28,20 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active text-white fw-bold" href="./paginas/productos.html">Productos</a>
+            <a class="nav-link active text-white fw-bold" href="productos.html">Productos</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active text-white fw-bold" href="./paginas/nosotros.html">Nosotros</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active text-white fw-bold" href="./paginas/ubicacion.html">Ubicacion</a>
+            <a class="nav-link active text-white fw-bold" href="./ubicacion.html">Ubicacion</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link active text-white fw-bold" href="./paginas/contacto.html">Contactanos</a>
+            <a class="nav-link active text-white fw-bold" href="./contacto.html">Contactanos</a>
           </li>
         </ul>
              <!--boton modal -->
           <button id="toggleMyModal" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-           <i class="bi bi-bag-check-fill"></i> </button>
+           <i class="bi bi-cart-fill"></i> </button>
       </div>
     </div>
   </nav>
@@ -87,7 +83,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Terminar compra</button>
+                <button type="button" class="btn btn-primary" id="finalizar"><p>Pasar a finalizar compra</p></button>
                 </div>
             </div>
         </div>
@@ -104,12 +100,137 @@
                     <div class="card-body">
                         <h5>HELADOS</h5>
                         <p>$1000</p>
-                        <button class="btn btn-success">Comprar</button>
+                        <button class="btn btn-success btn btn-cart-fill">Agregar al carro</button>
                     </div>
                 </div>
             </div>
         </article>
     </section>
     
+    <br>
+
+<!--seccion sabores helados, paletas y postres-->
+
+<section>
+  <h2 class="p-3 fs-2 border-top border-3 d-flex justify-content-center align-items-center text-helados">NUESTROS SABORES DE HELADO Y POSTRES!</h2>
+  <h3 class="p-3 fs-2 d-flex justify-content-center align-items-center text-helados">RECUERDE! debe decirnos su sabor o postre elegido en la casilla de comentarios del formulario!</h3>
+  
+    <div>
+        <img src="../img/sabores helado.jpg" width="350" height="320" alt="">
+        <img src="../img/postres.jpg" width="350" height="320" alt="">
+        <img src="../img/saborespaleta.jpg" width="350" height="320" alt="">
+        <img src="../img/saborespaleta2.jpg" width="350" height="320" alt="">
+    </div>  
+
+<br>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Jose">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1"placeholder="EJ: mi sabor/postre elegido es el... " rows="3"></textarea>
+</div>
+
+<button type="button" class="btn btn-danger">Enviar</button>
+
+</section>
+<br>
+
+<!--footer-->
+
+  <footer class="text-white text-center text-lg-start bg-dark">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row mt-4">
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">About company</h5>
+
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+          voluptatum deleniti atque corrupti.
+        </p>
+
+        <p>
+          Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+          molestias.
+        </p>
+
+        <div class="mt-4">
+          <!--instagram -->
+          <a href="https://www.instagram.com/heladosartesanalesbarile/" type="button" class="btn btn-floating btn-white btn-primary"><i class="bi bi-instagram"></i></a>
+          <!-- whasapp -->
+          <a type="button" class="btn btn-floating btn-white btn-primary"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!--Grid column-->
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+
+        <div class="form-outline form-white mb-4"></div>
+
+        <ul class="fa-ul" style="margin-left: 1.65em;">
+          <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">San justo, prov de Buenos aires, CP:1754</span>
+          </li>
+          <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
+          </li>
+          <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">DIAS Y HORARIOS</h5>
+
+        <table class="table text-center text-white">
+          <tbody class="font-weight-normal">
+            <tr>
+              <td>Lunes - Martes</td>
+              <td>8am - 18pm</td>
+            </tr>
+            <tr>
+              <td>Miercoles - Jueves </td>
+              <td>8am - 18pm</td>
+            </tr>
+            <tr>
+              <td>Viernes - Sabado</td>
+              <td>8am - 18pm y 8am - 13pm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: darkblue;">
+    © 2020 Copyright: FABRICA Y HELADERIA BARILE 
+  </div>
+
+</footer>
+
+<!--script-->
+<script src="../js/style.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </body>
 </html>
