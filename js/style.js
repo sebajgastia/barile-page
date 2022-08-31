@@ -95,7 +95,7 @@ function dibujarCarrito() {
 
     //contenedorCarritoCompras = renglonesCarrito;
     
-    if(elementosCarrito.length == 0) {
+   /* if(elementosCarrito.length == 0) {
         contenedorFooterCarrito.innerHTML = `
             <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
         `;
@@ -103,12 +103,23 @@ function dibujarCarrito() {
         contenedorFooterCarrito.innerHTML = `
             <th scope="row" colspan="5">Total de la compra: $${estandarPesosArgentinos.format(sumaCarrito)}</th>
         `;
-    }
+    }*/
     
+    //Operadores ternarios
+
+    elementosCarrito.length == 0 ? contenedorFooterCarrito.innerHTML=`
+    <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+    `:contenedorFooterCarrito.innerHTML = `
+    <th scope="row" colspan="5">Total de su compra:$${estandarPesosArgentinos.format(sumaCarrito)}</th>
+
+    `;
+
     //storage
 
     localStorage.setItem("carro", JSON.stringify (elementosCarrito));
 }
+
+//funcion para carta  
 
 function removerProductoCarrito(elementoAEliminar) {
     const elementosAMantener = elementosCarrito.filter((elemento) => elementoAEliminar.producto.id != elemento.producto.id);
@@ -147,7 +158,7 @@ function crearCard(producto) {
     carta.append(cuerpoCarta);
 
 
-    //Eventos
+    //Eventos y Librerias
     botonAgregar.onclick = () => {
 
         let elementoExistente = elementosCarrito.find((elemento) => elemento.producto.id == producto.id);
@@ -195,6 +206,7 @@ function dibujarCatalogoProductos() {
 
 }
 
+
 let finalizar=document.getElementById("finalizar");
 finalizar.onclick=()=>{
     Swal.fire({
@@ -206,3 +218,4 @@ finalizar.onclick=()=>{
         imageAlt: 'Custom image',
       })
 }    
+
