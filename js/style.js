@@ -24,10 +24,6 @@ const productos = [];
 
 let elementosCarrito = [];
 
-if(localStorage.getItem("carro") !=null){
-    elementosCarrito=JSON.parse(localStorage.getItem("carro"));
-}
-
 const contenedorProductos = document.getElementById('contenedor-productos');
 
 const contenedorCarritoCompras = document.querySelector("#items")
@@ -93,7 +89,7 @@ function dibujarCarrito() {
         }
     );
 
-    //contenedorCarritoCompras = renglonesCarrito;
+    //contenedorCarritoDecompras = renglonesCarrito;
     
    /* if(elementosCarrito.length == 0) {
         contenedorFooterCarrito.innerHTML = `
@@ -117,6 +113,10 @@ function dibujarCarrito() {
     //storage
 
     localStorage.setItem("carro", JSON.stringify (elementosCarrito));
+    
+    if(localStorage.getItem("carro") !=null){
+        elementosCarrito=JSON.parse(localStorage.getItem("carro"));
+    }
 }
 
 //funcion para carta  
@@ -219,3 +219,46 @@ finalizar.onclick=()=>{
       })
 }    
 
+/*const $form = document.getElementById('formulario')
+
+$form.addEventListener('submit', handleSubmit)
+
+async function handleSubmit(e) {
+    e.preventDefault()
+    const form = new FormData(this)
+    const response = await fetch(this.action, {
+        method:this.method,
+        body:form,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    if (response.ok) {
+        $form.reset()
+        alert('gracias por contactar')
+    }
+    
+}*/
+
+//API FORMULARIO
+
+const btn = document.getElementById('button');
+
+document.getElementById('formulario')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'ENVIANDO...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_ul5fg4h';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Enviado! En breve te contactamos :)');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});

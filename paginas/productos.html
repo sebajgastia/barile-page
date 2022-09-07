@@ -116,27 +116,30 @@
         <img src="../img/saborespaleta.jpg" width="350" height="320" alt="">
         <img src="../img/saborespaleta2.jpg" width="350" height="320" alt="">
     </div>  
+</section>
 
 <br>
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Jose">
-</div>
+  <form id="formulario">
+    <div class="mb-3">
+      <label for="from_name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="from_name" id="from_name" placeholder="Jose">
+    </div>
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
+    <div class="mb-3">
+      <label for="email_id" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email_id" id="email_id" placeholder="name@example.com">
+    </div>
 
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1"placeholder="EJ: mi sabor/postre elegido es el... " rows="3"></textarea>
-</div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Comentarios</label>
+      <textarea class="form-control"name="message" id="message" placeholder="EJ: mi sabor/postre elegido es el... " rows="3"></textarea>
+    </div>
 
-<button type="button" class="btn btn-danger">Enviar</button>
+    <button type="submit" class="btn btn-danger" id="button">Enviar</button>
+ 
+  </form>
 
-</section>
 <br>
 
 <!--footer-->
@@ -225,6 +228,13 @@
 <!--script-->
 <script src="../js/style.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--emailjs-->
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('tOujA5tZ5OnfII3K5')
+</script>
 
 
 </body>
