@@ -70,7 +70,7 @@ function dibujarCarrito() {
 
             sumaCarrito+=elemento.cantidad*elemento.producto.precio;
 
-            //agregamos evento a carrito
+            //evento al carrito
             let cantidadProductos = document.getElementById(`cantidad-producto-${elemento.producto.id}`);
             
             cantidadProductos.addEventListener("change", (e) => {
@@ -79,9 +79,9 @@ function dibujarCarrito() {
                 dibujarCarrito();
             });
 
-            let borrarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
+            let quitarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
 
-            borrarProducto.addEventListener("click", () => {
+            quitarProducto.addEventListener("click", () => {
                 removerProductoCarrito(elemento);
                 dibujarCarrito();
             });
@@ -91,17 +91,7 @@ function dibujarCarrito() {
 
     //contenedorCarritoDecompras = renglonesCarrito;
     
-   /* if(elementosCarrito.length == 0) {
-        contenedorFooterCarrito.innerHTML = `
-            <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-        `;
-    } else {
-        contenedorFooterCarrito.innerHTML = `
-            <th scope="row" colspan="5">Total de la compra: $${estandarPesosArgentinos.format(sumaCarrito)}</th>
-        `;
-    }*/
-    
-    //Operadores ternarios
+    //Operador ternario
 
     elementosCarrito.length == 0 ? contenedorFooterCarrito.innerHTML=`
     <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
@@ -150,7 +140,7 @@ function crearCard(producto) {
     imagen.className = "card-img-top";
     imagen.alt = producto.nombre;
 
-    //Card
+    //Carta
     let carta = document.createElement("div");
     carta.className = "card m-2 p-2";
     carta.style = "width: 18rem";
@@ -211,34 +201,14 @@ let finalizar=document.getElementById("finalizar");
 finalizar.onclick=()=>{
     Swal.fire({
         title: 'Gracias!!',
-        text: 'En breve te contactamos!',
-        imageUrl: '../img/graciasportucompra.jpg',
+        text: 'Solo estas a un paso de terminar! completa el formulario de abajo para indicarnos que gusto desea y finalizar la compra :)',
+        imageUrl: '../img/pasar a form.jpg',
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
 }    
 
-/*const $form = document.getElementById('formulario')
-
-$form.addEventListener('submit', handleSubmit)
-
-async function handleSubmit(e) {
-    e.preventDefault()
-    const form = new FormData(this)
-    const response = await fetch(this.action, {
-        method:this.method,
-        body:form,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    if (response.ok) {
-        $form.reset()
-        alert('gracias por contactar')
-    }
-    
-}*/
 
 //API FORMULARIO
 
@@ -255,10 +225,22 @@ document.getElementById('formulario')
 
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
-      btn.value = 'Send Email';
-      alert('Enviado! En breve te contactamos :)');
+      boton.value = 'Send Email';
+      //alert('Enviado! En breve te contactamos :)');
     }, (err) => {
-      btn.value = 'Send Email';
+      boton.value = 'Send Email';
       alert(JSON.stringify(err));
     });
 });
+
+let enviar=document.getElementById("button");
+enviar.onclick=()=>{
+    Swal.fire({
+        title: 'Gracias!!',
+        text: 'Recuerde que si quiere envio debe completar el formulario en la seccion "ubicacion&Envios" ',
+        imageUrl: '../img/graciasportucompra.jpg',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+      })
+} 

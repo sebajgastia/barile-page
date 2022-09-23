@@ -33,3 +33,48 @@ body{
     color:blueviolet;
     background-color: black;
 }
+
+.text-color{
+    color: #505EC6 ;
+    background-color:#50B4C6;
+    
+}
+
+/*animacion*/
+.text-color {
+    position: relative;
+  }
+  
+  .text-color::after {
+    content: "";
+    /*border: 2px solid black;*/
+    background-image: url(../img/helados2.jpg);
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-animation: maquinaescribir 4s infinite alternate;
+            animation: maquinaescribir 4s infinite alternate;
+  }
+  
+  @-webkit-keyframes maquinaescribir {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }
+  
+  @keyframes maquinaescribir {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }
+
+  .text-back{
+    background-color: deeppink;
+  }

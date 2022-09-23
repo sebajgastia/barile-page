@@ -15,8 +15,8 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark p-3 menu" id="navBar">
     <div class="container-fluid">
-      <a class="navbar-brand text-info fs-5 fw-bold" href="#">BARILE HELADOS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand text-info fs-5 fw-bold" href="../index.html">BARILE HELADOS</a>
+      <button class="navbar-toggler bg-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,7 +31,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active text-white fw-bold" href="./ubicacion.html">Ubicacion</a>
+            <a class="nav-link active text-white fw-bold" href="./ubicacion.html">Ubicacion & Envios</a>
           </li>
         </ul>
              <!--boton modal -->
@@ -78,7 +78,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="finalizar"><p>Pasar a finalizar compra</p></button>
+                <button type="button" class="btn btn-primary" id="finalizar"><a href="../paginas/formulario.html" target="_blank"></a><p>Pasar a formulario</p></button>
                 </div>
             </div>
         </div>
@@ -151,23 +151,25 @@
     <div class="row mt-4">
       <!--Grid column-->
       <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">About company</h5>
+        <h5 class="text-uppercase mb-4">Acerca de BARILE</h5>
 
         <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti.
+          Fabrica de helados Barile nace en el año 2020 un año complicado para el mundo. conformado por un unico dueño que decidio incursionar en el mundo de los helados. 
+          Su primer objetivo se baso especificamente en fabricar helados, ya sea para vender al publico de forma mayorista o minorista o bien, para aquellas personas que
+          quisieran abrir su negocio de helados, HELADERIA BARILE sea una opcion. Con el paso del tiempo fuimos implementando otro tipo de productos helados, como postres, tortas u alfojores.
         </p>
 
         <p>
-          Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-          molestias.
+          Al dia de la fecha contamos con un amplio nivel de maquinaria en lo que viene siendo la fabricacion de helados, utilizando materia prima de primera calidad,
+          un personal capacitado para las realizaciones de los productos y distribucion de los mismos.
         </p>
+
 
         <div class="mt-4">
           <!--instagram -->
           <a href="https://www.instagram.com/heladosartesanalesbarile/" type="button" class="btn btn-floating btn-white btn-primary"><i class="bi bi-instagram"></i></a>
           <!-- whasapp -->
-          <a type="button" class="btn btn-floating btn-white btn-primary"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://wa.me//+541123994832?text=hola queria hacer una consulta%20sobre un producto de su pagina" type="button" class="btn btn-floating btn-white btn-success" target="_blank"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
 
@@ -180,12 +182,6 @@
         <ul class="fa-ul" style="margin-left: 1.65em;">
           <li class="mb-3">
             <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">San justo, prov de Buenos aires, CP:1754</span>
-          </li>
-          <li class="mb-3">
-            <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
-          </li>
-          <li class="mb-3">
-            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
           </li>
         </ul>
       </div>
@@ -227,6 +223,7 @@
 
 <!--script-->
 <script src="../js/style.js"></script>
+<script src="../js/form.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--emailjs-->
 <script type="text/javascript"
