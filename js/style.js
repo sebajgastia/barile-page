@@ -225,10 +225,9 @@ document.getElementById('formulario')
 
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
-      boton.value = 'Send Email';
-      //alert('Enviado! En breve te contactamos :)');
+      btn.value = 'Send Email';
     }, (err) => {
-      boton.value = 'Send Email';
+      btn.value = 'Send Email';
       alert(JSON.stringify(err));
     });
 });
