@@ -196,6 +196,16 @@ function dibujarCatalogoProductos() {
 
 }
 
+//limpiar carro
+
+const Limpiarcarro = document.getElementById('finalizar')
+Limpiarcarro.addEventListener('click', LimpiarcarroClicked)
+
+function LimpiarcarroClicked(){
+    contenedorCarritoCompras.innerHTML='';
+    contenedorFooterCarrito.innerHTML='<th scope="col">Total</th>';
+
+}
 
 let finalizar=document.getElementById("finalizar");
 finalizar.onclick=()=>{
@@ -207,7 +217,7 @@ finalizar.onclick=()=>{
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
-}    
+}
 
 
 //API FORMULARIO
@@ -242,4 +252,5 @@ enviar.onclick=()=>{
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
+      
 } 
